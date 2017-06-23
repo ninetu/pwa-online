@@ -1,15 +1,28 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <p v-for="user of users">= {{user.name}} =</p>
   </div>
 </template>
 
 <script>
+import db from '../db'
+
+console.log(db.ref('users'))
 export default {
   name: 'hello',
   data () {
     return {
-      msg: 'Welcome to Firebase Hosting'
+      msg: 'Welcome to Firebase Hosting',
+      users: {}
+    }
+  },
+  firebase: {
+    users: {
+      source: db.ref('users'),
+      cancelCallback (err) {
+        console.log(err)
+      }
     }
   }
 }

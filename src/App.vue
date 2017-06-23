@@ -1,7 +1,12 @@
 <template>
   <div id="app">
     <header>
-      <span>Hello Firebase</span>
+    <div class="header clearfix">
+        <b-nav class="pull-right">
+            <b-nav-item :to="'near'">Near</b-nav-item>
+        </b-nav>
+        <h3 class="text-muted">Firebase</h3>
+      </div>        
     </header>
     <main>
       <img src="https://firebase.google.com/_static/images/firebase/touchicon-180.png" alt="Firebase">
@@ -29,26 +34,28 @@ body {
 }
 
 main {
-  text-align: center;
   margin-top: 40px;
 }
 
-header {
-  margin: 0;
-  height: 56px;
-  padding: 0 16px 0 24px;
-  background-color: #4fc08d;
-  color: #ffffff;
+.nav { float:right; }
+
+header,
+.marketing,
+.footer {
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
-header span {
-  display: block;
-  position: relative;
-  font-size: 20px;
-  line-height: 1;
-  letter-spacing: .02em;
-  font-weight: 400;
-  box-sizing: border-box;
-  padding-top: 16px;
+/* Custom page header */
+header {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e5e5e5;
+}
+/* Make the masthead heading the same height as the navigation */
+header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
 }
 </style>
