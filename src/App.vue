@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <header>
-      <span>Vue.js</span>
+      <span>Hello Firebase</span>
     </header>
     <main>
-      <img src="./assets/logo.png" alt="Vue.js PWA">
+      <img src="https://firebase.google.com/_static/images/firebase/touchicon-180.png" alt="Firebase">
       <router-view></router-view>
     </main>
   </div>
