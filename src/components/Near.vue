@@ -3,8 +3,8 @@
     <h1>{{ msg }}</h1>
     <p v-for="user of users">= {{user.name}} = at {{ currentLocation.lat }}</p>
 
-    <b-card v-for="item of items" :key="item.id">
-        <router-link :to="{path: '/itm/'+item.id}">
+    <b-card v-for="item of items" :key="item['.key']">
+        <router-link :to="{path: '/item/'+item['.key']}">
       <b-media>
         <img slot="aside" src="https://placeholdit.imgix.net/~text?txt=64x64&w=64&h=64">
         <h5 class="mt-0">{{ item.name }}</h5>

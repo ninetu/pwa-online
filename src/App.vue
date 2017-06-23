@@ -3,13 +3,14 @@
     <header>
     <div class="header clearfix">
         <b-nav class="pull-right">
-            <b-nav-item :to="'near'">Near</b-nav-item>
+            <b-nav-item :to="'/near'">Near</b-nav-item>
         </b-nav>
-        <h3 class="text-muted">Firebase</h3>
+        <b-link class="navbar-brand" :to="'/'">
+        <span>Firebase</span>
+        </b-link>
       </div>        
     </header>
     <main>
-      <img src="https://firebase.google.com/_static/images/firebase/touchicon-180.png" alt="Firebase">
       <router-view></router-view>
     </main>
   </div>
@@ -35,6 +36,8 @@ body {
 
 main {
   margin-top: 40px;
+  margin-left:15px;
+  margin-right:15px;
 }
 
 .nav { float:right; }

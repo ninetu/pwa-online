@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Hello from '@/components/Hello'
 import Near from '@/components/Near'
+import Item from '@/components/Item'
 
 Vue.use(Router)
 
@@ -16,6 +17,11 @@ export default new Router({
       path: '/near',
       name: 'Near',
       component: Near
+    },
+    {
+      path: '/item/:id',
+      name: 'Item',
+      component: Item
     }
   ]
 })
