@@ -9,7 +9,8 @@
 </template>
 
 <script>
-import db from '../db'
+import firebaseApp from '../firebaseApp'
+var db = firebaseApp.database()
 export default {
   name: 'item',
   data () {

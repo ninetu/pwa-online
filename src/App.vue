@@ -4,6 +4,8 @@
     <div class="header clearfix">
         <b-nav class="pull-right">
             <b-nav-item :to="'/near'">Near</b-nav-item>
+            <b-nav-item :to="'/form'">Add New</b-nav-item>
+            <b-nav-item :to="'/auth'"><img :src="userPhoto" v-if="userPhoto" style="height: 24px">{{ displayName }}</b-nav-item>
         </b-nav>
         <b-link class="navbar-brand" :to="'/'">
         <span>Firebase</span>
@@ -17,8 +19,31 @@
 </template>
 
 <script>
+import firebaseApp from './firebaseApp'
 export default {
-  name: 'app'
+  name: 'app',
+  data () {
+    return {
+      userPhoto: '',
+      displayName: 'Sign-in',
+      user: {}
+    }
+  },
+  created () {
+    firebaseApp.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.user = firebaseApp.auth().currentUser
+        if (this.user) {
+          this.name = this.user.displayName
+          this.email = this.user.email
+          this.photo = this.user.photoURL
+          this.userId = this.user.uid
+        }
+        this.displayName = this.user.displayName
+        this.userPhoto = this.user.photoURL
+      }
+    })
+  }
 }
 </script>
 

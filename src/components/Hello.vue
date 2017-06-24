@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import db from '../db'
-
+import firebaseApp from '../firebaseApp'
+var db = firebaseApp.database()
 console.log(db.ref('users'))
 export default {
   name: 'hello',
