@@ -5,6 +5,8 @@ import App from './App'
 import router from './router'
 import VueFire from 'vuefire'
 import BootstrapVue from 'bootstrap-vue'
+import Toasted from 'vue-toasted'
+Vue.use(Toasted)
 Vue.use(VueFire)
 Vue.use(BootstrapVue)
 

@@ -1,7 +1,21 @@
 <template>
   <div class="form">
-    <h1>{{ msg }}</h1>
-    <p v-for="user of users">= {{user.name}} = at {{ currentLocation.lat }}</p>
+
+  <b-form-input v-model="item.name" type="text" placeholder="Name" :state="text.length?'success':'warning'" ></b-form-input>
+  <br>
+
+  <b-form-input v-model="item.price" type="text" placeholder="Price" :state="text.length?'success':'warning'" ></b-form-input>
+
+  <br>
+  <b-form-input textarea v-model="item.brief" placeholder="Detail"></b-form-input>
+
+  <br>
+
+  <b-form-file v-model="file1" choose-label="Add Photo"></b-form-file>
+
+  <br><br>
+  <b-button @click='submitForm'>Submit</b-button>
+  <p v-for="user of users">= {{user.name}} = at {{ currentLocation.lat }}</p>
   </div>
 </template>
 
@@ -11,7 +25,15 @@ export default {
   name: 'form',
   data () {
     return {
-      msg: 'This is form',
+      file1: '',
+      item: {
+        name: '',
+        brief: '',
+        price: 0,
+        lat: '',
+        lng: ''
+      },
+      text: 'This is form',
       users: {},
       currentLocation: {
         lat: null,
@@ -37,6 +59,21 @@ export default {
         this.currentLocation.lat = position.coords.latitude
 //        console.log(this.currentLocation)
       }.bind(this)) // bind to `this` so it's the current component.
+    }
+  },
+  methods: {
+    format (value) {
+      return value.toLowerCase()
+    },
+    submitForm () {
+      // var itemRef = firebaseApp.database().ref('items')
+      this.item.lat = this.currentLocation.lat
+      this.item.lng = this.currentLocation.lng
+      // itemRef.push(this.item)
+      this.$toasted.show('Save completed')
+      console.log(this.file1)
+      var reader = new FileReader()
+      console.log(reader.readAsDataURL(this.file1))
     }
   }
 }
