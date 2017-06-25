@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <header>
+    <header id="header">
     <div class="header clearfix">
         <b-nav class="pull-right">
             <b-nav-item :to="'/near'">Near</b-nav-item>
@@ -8,7 +8,7 @@
             <b-nav-item :to="'/auth'"><img :src="userPhoto" v-if="userPhoto" style="height: 24px">{{ displayName }}</b-nav-item>
         </b-nav>
         <b-link class="navbar-brand" :to="'/'">
-        <span>Firebase</span>
+        <span>VR Mosquito</span>
         </b-link>
       </div>        
     </header>
@@ -60,9 +60,7 @@ body {
 }
 
 main {
-  margin-top: 40px;
-  margin-left:15px;
-  margin-right:15px;
+  margin:0px;
 }
 
 .nav { float:right; }
@@ -76,9 +74,9 @@ header,
 
 /* Custom page header */
 header {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #e5e5e5;
+  display:none;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 /* Make the masthead heading the same height as the navigation */
 header h3 {

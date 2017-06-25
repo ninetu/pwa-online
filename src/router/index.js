@@ -6,6 +6,8 @@ import Item from '@/components/Item'
 import Form from '@/components/Form'
 import Auth from '@/components/Auth'
 import AuthSuccess from '@/components/AuthSuccess'
+import Game from '@/components/Game'
+import Score from '@/components/Score'
 
 Vue.use(Router)
 
@@ -15,6 +17,16 @@ export default new Router({
       path: '/',
       name: 'Hello',
       component: Hello
+    },
+    {
+      path: '/game',
+      name: 'Game',
+      component: Game
+    },
+    {
+      path: '/score',
+      name: 'Score',
+      component: Score
     },
     {
       path: '/near',
